@@ -10,7 +10,10 @@ app.use(express.static("public"));
 
 app.get("/", (req, res) => {
   // res.sendFile(__dirname + "/views/index.html");
-  res.render("index");
+  res.render("index", {
+    firstName: "Lorenzo",
+    lastName: "Turrino"
+  });
 });
 
 app.get("/my-cv", (req, res) => {
