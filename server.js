@@ -1,6 +1,8 @@
 const express = require("express");
 const handlebars = require("express-handlebars");
 
+const blogPosts = require("./data/blogPosts.json")
+
 const app = express();
 
 app.engine("handlebars", handlebars());
@@ -9,15 +11,14 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  // res.sendFile(__dirname + "/views/index.html");
   res.render("index", {
     firstName: "Lorenzo",
-    lastName: "Turrino"
+    lastName: "Turrino",
+    blogPosts: blogPosts
   });
 });
 
 app.get("/my-cv", (req, res) => {
-  // res.sendFile(__dirname + "/views/my-cv.html");
   res.render("my-cv", {
     firstName: "Lorenzo",
     lastName: "Turrino"
