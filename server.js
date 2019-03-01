@@ -1,28 +1,15 @@
 const express = require("express");
-const handlebars = require("express-handlebars");
-
-const blogPosts = require("./data/blogPosts.json")
 
 const app = express();
-
-app.engine("handlebars", handlebars());
-app.set("view engine", "handlebars");
 
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.render("index", {
-    firstName: "Lorenzo",
-    lastName: "Turrino",
-    blogPosts: blogPosts
-  });
+  res.sendFile(__dirname + "/views/index.html");
 });
 
 app.get("/my-cv", (req, res) => {
-  res.render("my-cv", {
-    firstName: "Lorenzo",
-    lastName: "Turrino"
-  });
+  res.sendFile(__dirname + "/views/my-cv.html");
 });
 
 const SERVER_PORT = process.env.PORT || 3000;
