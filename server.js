@@ -18,7 +18,10 @@ app.get("/", (req, res) => {
 
 app.get("/my-cv", (req, res) => {
   // res.sendFile(__dirname + "/views/my-cv.html");
-  res.render("my-cv")
+  res.render("my-cv", {
+    firstName: "Lorenzo",
+    lastName: "Turrino"
+  });
 });
 
 const SERVER_PORT = process.env.PORT || 3000;
