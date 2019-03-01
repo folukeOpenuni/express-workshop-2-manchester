@@ -9,11 +9,13 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/templates/index.html");
+  // res.sendFile(__dirname + "/views/index.html");
+  res.render("index");
 });
 
 app.get("/my-cv", (req, res) => {
-  res.sendFile(__dirname + "/templates/my-cv.html");
+  // res.sendFile(__dirname + "/views/my-cv.html");
+  res.render("my-cv")
 });
 
 const SERVER_PORT = process.env.PORT || 3000;
