@@ -1,7 +1,7 @@
 const express = require("express");
 
 const handlebars = require("express-handlebars"); // load the package
-
+const blogPost = require("./data/blogPosts");
 const app = express(); // already-existing app initialisation
 
 app.engine("handlebars", handlebars()); // initialise the handlebars engine
@@ -23,15 +23,27 @@ app.get("/", (req, res) => {
     lastName: "Agbede",
     //date: Date(Date.now())
     //date: `${new Date().getMonth() + 1} / ${new Date().getFullYear()}`
-    date: new Date().toLocaleDateString("en-GB", options)
+    date: new Date().toLocaleDateString("en-GB", options),
+    footerDate: new Date().getFullYear(),
+    blogPost: blogPost
   });
 });
 
 app.get("/my-cv", (req, res) => {
   //res.sendFile(__dirname + "/views/my-cv.html");
   res.render(__dirname + "/views/my-cv.handlebars", {
-    date: new Date().getFullYear()
+    footerDate: new Date().getFullYear()
   });
+});
+
+app.get("/post.html", (req, res) => {
+  res.render(__dirname + "/views/post.handlebars", {
+    footerDate: new Date().getFullYear()
+  });
+});
+
+app.post("newpost", (req, res) => {
+  //do some magic
 });
 
 const SERVER_PORT = process.env.PORT || 3000;

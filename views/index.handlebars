@@ -56,7 +56,24 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        {{#each blogPost}}
         <div class="post-preview">
+          <a href="post.html">
+            <h2 class="post-title">
+              {{this.title}}
+            </h2>
+            <h3 class="post-subtitle">
+              {{this.summary}}
+              {{!-- Problems look mighty small from 150 miles up --}}
+            </h3>
+          </a>
+          <p class="post-meta">
+            Posted by <a href="#">Start Bootstrap</a> on September 24, 2014
+          </p>
+        </div>
+        <hr>
+        {{/each}}
+        {{!-- <div class="post-preview">
           <a href="post.html">
             <h2 class="post-title">
               Man must explore, and this is exploration at its greatest
@@ -110,7 +127,7 @@
           <p class="post-meta">
             Posted by <a href="#">Start Bootstrap</a> on July 8, 2014
           </p>
-        </div>
+        </div> --}}
         <hr />
         <!-- Pager -->
         <ul class="pager">
