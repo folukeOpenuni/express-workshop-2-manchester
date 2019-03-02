@@ -9,7 +9,7 @@ app.set("view engine", "handlebars"); // specify engine for page rendering```
 
 app.use(express.static("public"));
 
-var options = {
+options = {
   weekday: "long",
   year: "numeric",
   month: "long",
@@ -29,7 +29,9 @@ app.get("/", (req, res) => {
 
 app.get("/my-cv", (req, res) => {
   //res.sendFile(__dirname + "/views/my-cv.html");
-  res.render(__dirname + "/views/my-cv.handlebars");
+  res.render(__dirname + "/views/my-cv.handlebars", {
+    date: new Date().getFullYear()
+  });
 });
 
 const SERVER_PORT = process.env.PORT || 3000;
