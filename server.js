@@ -15,6 +15,7 @@ options = {
   month: "long",
   day: "numeric"
 };
+
 app.get("/", (req, res) => {
   //res.sendFile(__dirname + "/views/index.html");
   // res.render("index");
@@ -38,6 +39,13 @@ app.get("/my-cv", (req, res) => {
 
 app.get("/post.html", (req, res) => {
   res.render(__dirname + "/views/post.handlebars", {
+    footerDate: new Date().getFullYear()
+  });
+});
+
+//endpoint for contact me page
+app.get("/contact", (req, res) => {
+  res.render(__dirname + "/views/contact.handlebars", {
     footerDate: new Date().getFullYear()
   });
 });
