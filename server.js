@@ -33,6 +33,8 @@ app.get("/", (req, res) => {
 app.get("/my-cv", (req, res) => {
   //res.sendFile(__dirname + "/views/my-cv.html");
   res.render(__dirname + "/views/my-cv.handlebars", {
+    cvPage: "CV Page",
+    date: new Date().toLocaleDateString("en-GB", options),
     footerDate: new Date().getFullYear()
   });
 });
