@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 {{>head-content}}
 
 <body>
@@ -14,7 +13,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>Foluke's Profile</h1>
+                        <h1>{{}}{{}}</h1>
                         <hr class="small" />
                         <span class="subheading">Today is the {{date}}</span>
                     </div>
@@ -22,33 +21,6 @@
             </div>
         </div>
     </header>
-
-    <!-- Main Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                {{blogPage}}
-                <h2>{{post.title}}</h2>
-                <h4>{{post.summary}}</h4>
-                <p>{{post.content}}</p>
-                <p class="post-meta">
-                    Posted by <a href="#">Start Bootstrap</a> on September 24, 2014
-                </p>
-            </div>
-
-
-            <!-- Pager -->
-            <ul class="pager">
-                <li class="next">
-                    <a href="#">Older Posts &rarr;</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    </div>
-
-    <hr />
-
     <!-- Footer -->
     {{>footer}}
 
@@ -63,11 +35,3 @@
 </body>
 
 </html>
-
-
-
-
-{{!-- <!-- Navigation -->
-{{>nav}}
-<!-- Footer -->
-{{>footer}} --}}

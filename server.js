@@ -18,7 +18,6 @@ options = {
 
 app.get("/", (req, res) => {
   //res.sendFile(__dirname + "/views/index.html");
-  // res.render("index");
   res.render("index", {
     firstName: "Foluke",
     lastName: "Agbede",
@@ -27,6 +26,12 @@ app.get("/", (req, res) => {
     date: new Date().toLocaleDateString("en-GB", options),
     footerDate: new Date().getFullYear(),
     blogPost: blogPost
+  });
+});
+app.get("/post/:id", (req, res) => {
+  let id = req.params.id;
+  res.render(__dirname + "/views/post.handlebars", {
+    post: blogPost[id]
   });
 });
 
@@ -39,11 +44,12 @@ app.get("/my-cv", (req, res) => {
   });
 });
 
-app.get("/post.html", (req, res) => {
-  res.render(__dirname + "/views/post.handlebars", {
-    footerDate: new Date().getFullYear()
-  });
-});
+// app.route("/post.html", (req, res) => {
+//   res.send(__dirname + "/views/post.handlebars", {
+//     blogPage: "Blog Post Page",
+//     footerDate: new Date().getFullYear()
+//   });
+// });
 
 //endpoint for contact me page
 app.get("/contact", (req, res) => {
